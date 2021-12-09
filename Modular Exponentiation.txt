@@ -1,0 +1,16 @@
+#include <stdio.h>
+//The complexity is log(n).
+int solve(int a, int n, int m)
+{
+    if(n==1)
+        return a%m;
+    if(n%2==0)
+        return solve((a*a), n/2, m);
+    return a*solve(a, n-1, m)%m;
+}
+int main()
+{
+    printf("%d",solve(5,4,3));
+
+    return 0;
+}
